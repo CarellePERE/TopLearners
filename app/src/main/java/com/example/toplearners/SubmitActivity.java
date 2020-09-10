@@ -25,6 +25,7 @@ import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.HttpException;
 import retrofit2.Response;
 
 import static android.text.TextUtils.isEmpty;
@@ -54,10 +55,10 @@ public class SubmitActivity extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFirstName = FirstName.getText().toString();
-                mLastName = LastName.getText().toString();
-                mEmailAdress = EmailAdress.getText().toString();
-                mGitLink = GitLink.getText().toString();
+                mFirstName = FirstName.getText().toString().trim();
+                mLastName = LastName.getText().toString().trim();
+                mEmailAdress = EmailAdress.getText().toString().trim();
+                mGitLink = GitLink.getText().toString().trim();
                 if(!isEmpty(mFirstName) &&
                         !isEmpty(mLastName) &&
                         !isEmpty(mEmailAdress)&&
@@ -102,10 +103,10 @@ public class SubmitActivity extends AppCompatActivity {
 
     public void sendPost()
     {
-        Call<post> call = formRetrofitApi.getformApi().savePost(mFirstName, mLastName,mEmailAdress, mGitLink);
-        call.enqueue(new Callback<post>() {
+        Call<Void> call = formRetrofitApi.getformApi().savePost(mFirstName, mLastName, mEmailAdress, mGitLink);
+        call.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<post> call, Response<post> response ) {
+            public void onResponse(Call<Void> call, Response<Void> response ) {
                 if(response.isSuccessful())
                 {
                     Toast.makeText(SubmitActivity.this, "Send successfully", Toast.LENGTH_LONG).show();
@@ -113,11 +114,9 @@ public class SubmitActivity extends AppCompatActivity {
                 }
                 {
                     //Toast.makeText(SubmitActivity.this, "Request failed", Toast.LENGTH_LONG).show();
-                    try {
-                        Log.e("failure", response.errorBody().string());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+
+                        Log.e("failure", response.message());
+
                     // dialogSucces();
 
 
@@ -126,9 +125,8 @@ public class SubmitActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<post> call, Throwable t ) {
+            public void onFailure(Call<Void> call, Throwable t ) {
                 Toast.makeText(SubmitActivity.this, "Send s failed", Toast.LENGTH_LONG).show();
-                Log.e("failure", t.getLocalizedMessage());
                 dialogFaill();
 
             }
