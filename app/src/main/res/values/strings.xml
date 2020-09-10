@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">TopLearners</string>
+    <string name="title_activity_leaderboard">LEADERBOARD</string>
+    <string name="tab_text_1">Learning Leaders</string>
+    <string name="tab_text_2">Skills IQ Leaders</string>
+    <string name="submit">submit</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Hello_From_Skill">Hello from Skills</string>
+    <string name="Hello_Learners">Hello Top Learners</string>
+    <string name="hello_skills">Hello Top SKILLS</string>
+    <string name="Nom">John DOE</string>
+    <string name="Description">225 learning hours , </string>
+    <string name="SDescription">300 learning hours , </string>
+    <string name="country"> Kenya</string>
+    <string name="img_learners_desc">Il s\'agit du logo badge représentant les Top learners</string>
+    <string name="img_score_desc">Il s\'agit du logo badge représentant les Top Skill IQ</string>
+    <string name="Project_Submission">Project Submission</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_adress">Email Adress</string>
+    <string name="first_name">First Name</string>
+    <string name="git_hub_link">Project on GIT Hub (Link)</string>
+    <string name="sure">Are You sure ?</string>
+    <string name="yes">Yes</string>
+    <string name="Submission_succes">Submission Successful</string>
+    <string name="Succes_desc">"Icone pour désigner le succès "</string>
+    <string name="Submission_failed">Submission Not Successfull</string>
+    <string name="Des_close">Bouton pour fermer</string>
+</resources>
